@@ -1,0 +1,1 @@
+<h1>Hello Serey from Yii2 :<?php echo $msg ?></h1>
