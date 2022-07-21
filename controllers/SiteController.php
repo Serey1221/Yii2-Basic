@@ -54,6 +54,14 @@ class SiteController extends Controller
         ];
     }
 
+    // public function beforeAction($action)
+    // {
+    //     echo '<pre>';
+    //     var_dump("controller before action");
+    //     echo '</pre>';
+    //     return parent::beforeAction($action);
+    // }
+
     /**
      * Displays homepage.
      *
@@ -127,7 +135,9 @@ class SiteController extends Controller
     }
     public function actionHello($message)
     {
-        return $this->render('hello',
-         ['msg' => $message]);
+        return $this->render(
+            'hello',
+            ['msg' => $message]
+        );
     }
 }
