@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\TestModel;
 
 class SiteController extends Controller
 {
@@ -139,5 +140,47 @@ class SiteController extends Controller
             'hello',
             ['msg' => $message]
         );
+    }
+    public function actionTest()
+    {
+
+        $test = new TestModel();
+
+        $post = [
+            'name' => 'Serey',
+            'surname' => 'Sruot',
+            'age' => 21,
+            'email' => 'Sereysruot007@gmial.com'
+        ];
+        $test->attributes = $post;
+        //$test->name = 'Serey';
+        //$test->surname = 'Sruot';
+        //$test->email = 'Sereysruot007@gmial.com';
+        //$test->age = 21;
+
+        // foreach ($test as $attri => $value) {
+        //     echo $test->getAttributeLabel($attri) . ' : ' . $value . '<br>';
+        // }
+        if ($test->validate()) {
+            echo "OK";
+        } else {
+            echo '<pre>';
+            var_dump($test->errors);
+            echo '</pre>';
+            echo "Error";
+        }
+        // $test['surname'] = 'Sruot';
+
+        // echo $test->name;
+        // echo '<pre>';
+        // var_dump($test->getAttributeLabel('myAge'));
+        // echo '</pre>';
+        // echo $test->getAttributeLabel('mySurname');
+
+
+    }
+    public function actionRequest()
+    {
+        
     }
 }
